@@ -1,0 +1,43 @@
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+01/04/17,BlackRock Liquidity T-Fund Mgmt,Purchase,0.030,$1.00,-$0.03
+01/04/17,iShares Rate Hedged Hi Yld,Dividend,,,$15.06
+01/04/17,VanEck Vectors Fallen Angel ETF,Dividend,,,$15.24
+"",,Long-Term Cap Gains,,,
+01/04/17,VanEck Vectors Fallen Angel ETF,,,,$0.91
+"",,Distribution,,,
+"",,Short-Term Cap Gains,,,
+01/04/17,VanEck Vectors Fallen Angel ETF,,,,$10.10
+"",,Distribution,,,
+01/05/17,BlackRock Liquidity T-Fund Mgmt,Purchase,41.310,$1.00,-$41.31
+01/09/17,Cash,Advisory Fee,,,-$175.99
+01/10/17,BlackRock Liquidity T-Fund Mgmt,Sale,-175.990,$1.00,$175.99
+02/07/17,iShares Barclays 1-3 Yr Trs Bond,Dividend,,,$72.25
+02/07/17,iShares Barclays 1-3 Yr Trs Bond,Purchase,23.000,$84.57,"-$1,945.11"
+02/07/17,iShares iBoxx High Yield Corporate Bd,Dividend,,,$15.29
+02/07/17,iShares Barclays Intermediate Crdt Bd,Dividend,,,$8.78
+02/07/17,iShares 0-5 Year High Yield Corp ETF,Dividend,,,$16.82
+02/07/17,VanEck Vectors Fallen Angel ETF,Dividend,,,$14.52
+02/08/17,BlackRock Liquidity T-Fund Mgmt,Purchase,127.660,$1.00,-$127.66
+02/08/17,iShares Rate Hedged Hi Yld,Dividend,,,$10.76
+02/09/17,BlackRock Liquidity T-Fund Mgmt,Purchase,10.760,$1.00,-$10.76
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+02/10/17,BlackRock Liquidity T-Fund Mgmt,Sale,"-1,945.110",$1.00,"$1,945.11"
+03/07/17,iShares Barclays 1-3 Yr Trs Bond,Dividend,,,$77.05
+03/07/17,iShares iBoxx High Yield Corporate Bd,Dividend,,,$15.36
+03/07/17,iShares Barclays Intermediate Crdt Bd,Dividend,,,$9.09
+03/07/17,iShares 0-5 Year High Yield Corp ETF,Dividend,,,$16.73
+03/07/17,VanEck Vectors Fallen Angel ETF,Dividend,,,$13.50
+03/08/17,BlackRock Liquidity T-Fund Mgmt,Purchase,131.730,$1.00,-$131.73
+03/08/17,iShares Rate Hedged Hi Yld,Dividend,,,$12.94
+03/09/17,BlackRock Liquidity T-Fund Mgmt,Purchase,12.940,$1.00,-$12.94
+03/24/17,iShares Barclays 1-3 Yr Trs Bond,Sale,-778.000,$84.50,"$65,739.82"
+03/24/17,iShares iBoxx High Yield Corporate Bd,Sale,-40.000,$86.70,"$3,467.94"
+03/24/17,iShares Barclays Intermediate Crdt Bd,Purchase,89.000,$108.80,"-$9,683.20"
+03/24/17,iShares Floating Rate Note Fund,Purchase,385.000,$50.88,"-$19,588.80"
+03/24/17,iShares Rate Hedged Hi Yld,Sale,-39.000,$89.89,"$3,505.64"
+03/24/17,iShares 5 Yr Inv Gr Corp Bond,Purchase,722.000,$50.37,"-$36,367.14"
+03/24/17,iShares 0-5 Year High Yield Corp ETF,Sale,-73.000,$47.30,"$3,452.84"
+03/24/17,PowerShares Senior Loan Port,Purchase,604.000,$23.18,"-$14,000.72"
+03/24/17,VanEck Vectors Fallen Angel ETF,Sale,-120.000,$29.05,"$3,485.97"
+03/29/17,BlackRock Liquidity T-Fund Mgmt,Purchase,12.350,$1.00,-$12.35
+03/31/17,BlackRock Liquidity T-Fund Mgmt,Dividend,,,$0.11

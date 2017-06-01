@@ -1,0 +1,36 @@
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+10/04/16,BlackRock Liquidity T-Fund Mgmt,Sale,"-58,974.880",$1.00,"$58,974.88"
+10/05/16,BlackRock Liquidity T-Fund Mgmt,Purchase,99.650,$1.00,-$99.65
+10/07/16,iShares iBoxx High Yield Corporate Bd,Dividend,,,$27.39
+10/07/16,iShares Barclays Intermediate Crdt Bd,Dividend,,,$105.15
+10/07/16,iShares Barclays 10-20 Year Treas Bd,Dividend,,,$3.30
+10/10/16,Cash,Advisory Fee,,,-$79.98
+10/11/16,BlackRock Liquidity T-Fund Mgmt,Purchase,55.860,$1.00,-$55.86
+10/31/16,Blackrock High Yield Bond Portfolio A,Dividend,,,$3.24
+10/31/16,BlackRock Liquidity T-Fund Mgmt,Dividend,,,$0.07
+11/02/16,BlackRock Liquidity T-Fund Mgmt,Purchase,3.310,$1.00,-$3.31
+11/07/16,iShares iBoxx High Yield Corporate Bd,Dividend,,,$27.39
+11/07/16,iShares Barclays Intermediate Crdt Bd,Dividend,,,$104.45
+11/07/16,iShares Barclays 10-20 Year Treas Bd,Dividend,,,$3.36
+11/08/16,BlackRock Liquidity T-Fund Mgmt,Purchase,135.200,$1.00,-$135.20
+11/30/16,BlackRock Liquidity T-Fund Mgmt,Dividend,,,$0.02
+12/02/16,BlackRock Liquidity T-Fund Mgmt,Purchase,0.020,$1.00,-$0.02
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+12/07/16,iShares iBoxx High Yield Corporate Bd,Dividend,,,$27.03
+12/07/16,iShares Barclays Intermediate Crdt Bd,Dividend,,,$105.45
+12/07/16,iShares Barclays 10-20 Year Treas Bd,Dividend,,,$3.27
+12/08/16,BlackRock Liquidity T-Fund Mgmt,Purchase,135.750,$1.00,-$135.75
+12/15/16,BlackRock Liquidity T-Fund Mgmt,LT Cap Gains Reinvestment,0.010,$1.00,$0.01
+12/22/16,iShares Barclays 7-10 Year Treasury,Purchase,43.000,$103.86,"-$4,465.98"
+12/22/16,iShares Barclay Agency Bond Fund,Purchase,27.000,$112.23,"-$3,030.21"
+12/22/16,iShares iBoxx High Yield Corporate Bd,Sale,-54.000,$86.30,"$4,660.11"
+12/22/16,iShares Barclays Intermediate Crdt Bd,Sale,-60.000,$107.66,"$6,459.53"
+12/22/16,iShares Barclays 10-20 Year Treas Bd,Purchase,5.000,$131.74,-$658.70
+12/22/16,iShares Rate Hedged Hi Yld,Purchase,17.000,$90.06,"-$1,531.02"
+12/22/16,iShares 0-5 Year High Yield Corp ETF,Purchase,32.000,$47.19,"-$1,510.08"
+12/28/16,BlackRock Liquidity T-Fund Mgmt,Sale,-76.350,$1.00,$76.35
+12/29/16,iShares iBoxx High Yield Corporate Bd,Dividend,,,$20.28
+12/29/16,iShares Barclays Intermediate Crdt Bd,Dividend,,,$97.50
+12/29/16,iShares Barclays 10-20 Year Treas Bd,Dividend,,,$3.53
+12/30/16,BlackRock Liquidity T-Fund Mgmt,Purchase,121.310,$1.00,-$121.31
+12/30/16,BlackRock Liquidity T-Fund Mgmt,Dividend,,,$0.02

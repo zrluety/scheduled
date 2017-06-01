@@ -1,0 +1,6 @@
+.idea/
+profiles/
+resources/jar/*.csv
+scheduled.log
+scheduled/__pycache__/
+tests/__pycache__/

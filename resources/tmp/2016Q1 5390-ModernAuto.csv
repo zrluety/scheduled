@@ -1,0 +1,28 @@
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+01/05/16,BlackRock Liquidity TempFund,Purchase,274.800,$1.00,-$274.80
+01/11/16,Cash,Advisory Fee,,,-$107.87
+01/12/16,BlackRock Liquidity TempFund,Sale,-107.870,$1.00,$107.87
+01/29/16,Blackrock High Yield Bond Portfolio A,Dividend,,,$39.40
+01/29/16,BlackRock Liquidity TempFund,Dividend Reinvestment,0.430,$1.00,$0.43
+01/29/16,Federated Total Return Govt Inst,Dividend,,,$24.40
+01/29/16,Nuveen High Yield Municipal Bond I,Dividend,,,$92.03
+01/29/16,PIMCO Low Duration Instl,Dividend,,,$13.39
+01/29/16,PIMCO Investment Grade Corp Bd Instl,Dividend,,,$48.20
+01/29/16,T. Rowe Price Short Term Bond,Dividend,,,$17.84
+02/02/16,BlackRock Liquidity TempFund,Purchase,235.260,$1.00,-$235.26
+02/29/16,Blackrock High Yield Bond Portfolio A,Dividend,,,$35.72
+02/29/16,BlackRock Liquidity TempFund,Dividend,,,$0.82
+02/29/16,Federated Total Return Govt Inst,Dividend,,,$34.59
+02/29/16,Nuveen High Yield Municipal Bond I,Dividend,,,$92.03
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+02/29/16,PIMCO Low Duration Instl,Dividend,,,$11.64
+02/29/16,PIMCO Investment Grade Corp Bd Instl,Dividend,,,$52.57
+02/29/16,T. Rowe Price Short Term Bond,Dividend,,,$20.10
+03/02/16,BlackRock Liquidity TempFund,Purchase,247.470,$1.00,-$247.47
+03/31/16,Blackrock High Yield Bond Portfolio A,Dividend,,,$40.20
+03/31/16,BlackRock Liquidity TempFund,Dividend,,,$1.04
+03/31/16,Federated Total Return Govt Inst,Dividend,,,$25.56
+03/31/16,Nuveen High Yield Municipal Bond I,Dividend,,,$92.03
+03/31/16,PIMCO Low Duration Instl,Dividend,,,$26.91
+03/31/16,PIMCO Investment Grade Corp Bd Instl,Dividend,,,$51.95
+03/31/16,T. Rowe Price Short Term Bond,Dividend,,,$20.23
