@@ -4,7 +4,7 @@ from pandas.util.testing import assert_frame_equal
 import unittest
 import xlsxwriter
 
-from .context import scheduled, TEST_ROOT, sample_csv
+from .context import extractor, TEST_ROOT, sample_csv
 
 
 class TestExtractorBasic(unittest.TestCase):
@@ -40,16 +40,16 @@ class TestExtractorBasic(unittest.TestCase):
 
     def test_extractor_factory(self):
         """Extractor class includes a static factory method for returning Extractors."""
-        extractor = scheduled.Extractor.factory('csv')
-        self.assertTrue(isinstance(extractor, scheduled.CsvExtractor))
+        e = extractor.Extractor.factory('.csv')
+        self.assertTrue(isinstance(e, extractor.CsvExtractor))
 
     def test_xlsx_extract(self):
         """Options passed from _given_profile to extractor should be used properly."""
-        extractor = scheduled.ExcelExtractor()
+        e = extractor.ExcelExtractor()
         xlsx_file = os.path.join(TEST_ROOT, 'tmp.xlsx')
         options = {'sheetname': 'Sheet1'}
 
-        df = extractor.extract(xlsx_file, options)
+        df = e.extract(xlsx_file, options)
 
         expected_df = DataFrame(
             {"aExpense": ['Rent', 'Gas', 'Food', 'Gym'],
@@ -60,8 +60,8 @@ class TestExtractorBasic(unittest.TestCase):
         """Options passed from _given_profile to extractor should be used properly."""
 
         options = {'header': 1}
-        extractor = scheduled.CsvExtractor()
-        df = extractor.extract(sample_csv, options)
+        e = extractor.CsvExtractor()
+        df = e.extract(sample_csv, options)
         headers = list(df)
 
         self.assertEqual(headers, ['f1', 'f2'])
@@ -69,7 +69,7 @@ class TestExtractorBasic(unittest.TestCase):
     def test_raise_not_implemented_on_base_extract(self):
         """The base extractor class should raise a NotImplementedError when extract is called."""
 
-        extractor = scheduled.Extractor()
+        e = extractor.Extractor()
 
         with self.assertRaises(NotImplementedError):
-            extractor.extract('/tmp/fake/source.csv')
+            e.extract('/tmp/fake/source.csv')

@@ -16,6 +16,11 @@ PROJECT_ROOT = os.path.dirname(TEST_ROOT)
 sys.path.insert(0, PROJECT_ROOT)
 
 import scheduled
+import scheduled.utils as utils
+import scheduled.extractor as extractor
+import scheduled.parser as parser
+import scheduled.session as session
+
 
 # An example YAML file that will be used for basic tests
 sample_profile = """

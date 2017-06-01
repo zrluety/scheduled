@@ -1,9 +1,11 @@
 import yaml
 import os
+from pandas import to_datetime
 
 CONSTANTS = {
     'PROJECT_PATH': os.path.abspath(os.path.dirname(os.path.dirname(__file__))),
-    'JAR': os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'resources', 'jar', 'scheduled-1.0.jar'),
+    'JAR': os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'resources', 'jar',
+                        'scheduled-1.0.jar'),
     'TMP': os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'resources', 'tmp')
 }
 
@@ -37,6 +39,7 @@ def format_output(df, mapping):
     """Format output DataFrame"""
     df = remove_unmapped_columns(df, mapping)
     df = order_columns(df, mapping)
+    df = order_by_first(df)
     name_columns(df, mapping)
     return df
 
@@ -93,3 +96,24 @@ def extract_tables(stream, fields):
         tables.append(table)
 
     return tables
+
+
+def order_by_first(df):
+    """Order the DataFrame based on the first-column"""
+
+    cols = df.columns
+
+    try:
+        df['TEMP_SORT_COL'] = to_datetime(df[df.columns[0]], infer_datetime_format=True)
+    except:
+        # This does not guarantee proper ordering if the date cannot be inferred from
+        # the first column (this happens with Wells Fargo where the date is provided
+        # in as month/day (e.g. 02/16). In the future we may want to check this using
+        # regular expressions
+        pass
+
+    df.sort_values(by='TEMP_SORT_COL', inplace=True)
+    return df[cols]
+
+
+

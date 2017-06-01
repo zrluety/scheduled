@@ -1,7 +1,7 @@
 import unittest
 import logging
 
-from .context import scheduled
+from .context import session
 
 
 # helper functions
@@ -19,21 +19,23 @@ class TestSessionBasic(unittest.TestCase):
     def test_develop_log_level(self):
         """The log level during develop should be debug."""
         # Create Session object.
-        session = scheduled.Session(source='tmp/file.csv',
-                                    profile='tmp_profile',
-                                    scheduled='schd.xlsx',
-                                    username='name',
-                                    develop=True)
+        s = session.Session(source='tmp/file.csv',
+                            profile='tmp_profile',
+                            scheduled='schd.xlsx',
+                            dest='tmp/file.xlsx',
+                            username='name',
+                            develop=True)
 
-        self.assertEqual(_get_lvl(session._logger), 'DEBUG')
+        self.assertEqual(_get_lvl(s._logger), 'DEBUG')
 
     def test_production_log_level(self):
         """The log level during production should be info."""
         # Create Session object.
-        session = scheduled.Session(source='tmp/file.csv',
-                                    profile='tmp_profile',
-                                    scheduled='schd.xlsx',
-                                    username='name',
-                                    develop=False)
+        s = session.Session(source='tmp/file.csv',
+                            profile='tmp_profile',
+                            scheduled='schd.xlsx',
+                            dest='tmp/file.xlsx',
+                            username='name',
+                            develop=False)
 
-        self.assertEqual(_get_lvl(session._logger), 'INFO')
+        self.assertEqual(_get_lvl(s._logger), 'INFO')
