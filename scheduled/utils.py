@@ -105,6 +105,7 @@ def order_by_first(df):
 
     try:
         df['TEMP_SORT_COL'] = to_datetime(df[df.columns[0]], infer_datetime_format=True)
+        df.sort_values(by='TEMP_SORT_COL', inplace=True)
     except:
         # This does not guarantee proper ordering if the date cannot be inferred from
         # the first column (this happens with Wells Fargo where the date is provided
@@ -112,7 +113,6 @@ def order_by_first(df):
         # regular expressions
         pass
 
-    df.sort_values(by='TEMP_SORT_COL', inplace=True)
     return df[cols]
 
 
