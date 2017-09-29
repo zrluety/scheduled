@@ -5,7 +5,7 @@ from pandas import to_datetime
 CONSTANTS = {
     'PROJECT_PATH': os.path.abspath(os.path.dirname(os.path.dirname(__file__))),
     'JAR': os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'resources', 'jar',
-                        'scheduled-1.0.jar'),
+                        'scheduled-1.1.jar'),
     'TMP': os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'resources', 'tmp')
 }
 

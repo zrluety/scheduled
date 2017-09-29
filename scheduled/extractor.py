@@ -66,12 +66,12 @@ class PdfExtractor(Extractor):
 
         if options.get('stopwords'):
             subprocess.run(['java', '-jar', CONSTANTS.get('JAR'), source, '-f', ','.join(options.get('fields')),
-                            '-s', ','.join(options.get('stopwords')),'-o', o_file])
+                            '-s', ','.join(options.get('stopwords')), '-o', o_file])
         else:
             subprocess.run(['java', '-jar', CONSTANTS.get('JAR'), source, '-f', ','.join(options.get('fields')),
                             '-o', o_file])
 
-        with ScheduleDCsvParser(o_file) as raw_csv:
+        with ScheduleDCsvParser(o_file, options) as raw_csv:
             try:
                 tables = extract_tables(raw_csv, options.get('fields'))
                 df = concat([read_csv(StringIO('\r\n'.join(table))) for table in tables]).reset_index(drop=True)
