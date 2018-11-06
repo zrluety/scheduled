@@ -3,8 +3,8 @@ import os
 import pandas as pd
 import yaml
 
-PROFILES_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), "profiles")
+DATA_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "data")
 )
 
 RESOURCES_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "resources"))
@@ -27,8 +27,8 @@ def load_profile(filename):
 
 def get_filename_from_name(name):
     """Finds the path to the correct file given name"""
-    for file in os.listdir(PROFILES_DIR):
-        filename = os.path.join(PROFILES_DIR, file)
+    for file in os.listdir(DATA_DIR):
+        filename = os.path.join(DATA_DIR, file)
         with open(filename, "r") as y:
             profile = yaml.load(y)
 
