@@ -1,5 +1,6 @@
 import os
 
+
 from scheduled.main import (
     load_profile,
     extract_data,
@@ -39,7 +40,4 @@ def test_extract_Bank_of_Oklahoma():
 
 def test_get_filename_from_name():
     name = "Bank Of Oklahoma"
-    assert (
-        get_filename_from_name(name),
-        r"C:\Users\gpwa\Projects\scheduled\profiles\BankOfOklahoma.yaml",
-    )
+    assert get_filename_from_name(name) == r"C:\Users\gpwa\Projects\scheduled\profiles\BankOfOklahoma.yaml"
