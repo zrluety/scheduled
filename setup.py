@@ -8,6 +8,6 @@ setup(
     install_requires=["Click", "Pandas", "pyyaml", "xlrd", "xlsxwriter"],
     entry_points="""
         [console_scripts]
-        scheduled=scheduled.scripts.cli:cli
+        scheduled=src.python.scheduled.scripts.cli:cli
     """,
 )
