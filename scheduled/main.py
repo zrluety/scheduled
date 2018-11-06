@@ -1,5 +1,20 @@
+import os
+
 import pandas as pd
 import yaml
+
+PROFILES_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), "profiles")
+)
+
+RESOURCES_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "resources"))
+
+
+def run(name, src, dst):
+    filename = get_filename_from_name(name)
+    profile = load_profile(filename)
+    transaction_data = extract_data(src, profile)
+    save(transaction_data, dst)
 
 
 def load_profile(filename):
@@ -8,6 +23,19 @@ def load_profile(filename):
         profile = yaml.load(f)
 
     return profile
+
+
+def get_filename_from_name(name):
+    for file in os.listdir(PROFILES_DIR):
+        filename = os.path.join(PROFILES_DIR, file)
+        with open(filename, "r") as y:
+            profile = yaml.load(y)
+
+            if profile.get("name") == name:
+                return filename
+
+    # if name is not found, raise error.
+    raise FileNotFoundError(f"No profile was found with the name {name}")
 
 
 def extract_data(src, profile):

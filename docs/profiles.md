@@ -2,10 +2,17 @@
 
 Before you can use a bank with the Schedule D application, a bank profile needs to be created. A profile is a yaml file that consists of the following sections:
 
+* Name
 * Mapping
 * Options
 
-The profile should be named with the bank name. When the Schedule D workbook is opened, all profiles in the profiles directory are loaded as options to choose from.
+## Name
+
+The name property is what the analyst selects in the Populate Schedule D workbook to use a given profile. When the Populate Schedule D workbook is opened, all profiles in the profiles.json file are loaded as options to choose from. To refresh the list of available profiles, run the following in the terminal.
+
+```python
+python manage.py refresh
+```
 
 ## Mapping
 
@@ -26,3 +33,4 @@ The options section contains inputs to the Schedule D application that refine ho
 * stopwords
 * vertical alignment
 * horizontal alignment
+* pandas

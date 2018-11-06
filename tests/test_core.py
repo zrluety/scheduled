@@ -1,14 +1,6 @@
 import os
 
-from scheduled.main import load_profile, extract_data
-
-PROFILES_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(os.path.dirname(__file__)), 'profiles')
-)
-
-RESOURCES_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), 'resources')
-)
+from scheduled.main import load_profile, extract_data, PROFILES_DIR, RESOURCES_DIR, get_filename_from_name
 
 
 def test_load_profile_contains_mapping():
@@ -39,6 +31,6 @@ def test_extract_Bank_of_Oklahoma():
     ])
 
 
-    
-
-    
+def test_get_filename_from_name():
+    name = 'Bank Of Oklahoma'
+    assert(get_filename_from_name(name), r'C:\Users\gpwa\Projects\scheduled\profiles\BankOfOklahoma.yaml')    
