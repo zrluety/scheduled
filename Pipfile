@@ -10,6 +10,7 @@ pyyaml = "*"
 scheduled = {editable = true, path = "."}
 xlsxwriter = "*"
 xlrd = "*"
+black = "*"
 
 [dev-packages]
 pytest = "*"

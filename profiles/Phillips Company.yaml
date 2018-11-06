@@ -1,0 +1,10 @@
+mapping:
+  Settlement Date: Date
+  Details: Security Name
+  Description: Transaction Type
+  Quantity: Shares
+  Price: Transaction Price
+  Net Amount: Amount
+
+options:
+  skiprows: [0, 1]

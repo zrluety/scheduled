@@ -1,0 +1,40 @@
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+01/04/17,BlackRock Liquidity T-Fund Mgmt,Purchase,0.010,$1.00,-$0.01
+01/04/17,iShares Rate Hedged Hi Yld,Dividend,,,$4.25
+01/05/17,BlackRock Liquidity T-Fund Mgmt,Purchase,4.250,$1.00,-$4.25
+01/09/17,Cash,Advisory Fee,,,-$48.80
+01/10/17,BlackRock Liquidity T-Fund Mgmt,Sale,-48.800,$1.00,$48.80
+02/07/17,iShares Barclays 7-10 Year Treasury,Dividend,,,$4.30
+02/07/17,iShares Barclays 7-10 Year Treasury,Purchase,1.000,$105.61,-$105.61
+02/07/17,iShares Barclay Agency Bond Fund,Dividend,,,$2.25
+02/07/17,iShares iBoxx High Yield Corporate Bd,Dividend,,,$4.20
+02/07/17,iShares Barclays Intermediate Crdt Bd,Dividend,,,$59.21
+02/07/17,iShares Barclays Intermediate Crdt Bd,Purchase,6.000,$108.91,-$653.46
+02/07/17,iShares Barclays 10-20 Year Treas Bd,Dividend,,,$2.79
+02/07/17,iShares 0-5 Year High Yield Corp ETF,Dividend,,,$4.61
+02/08/17,BlackRock Liquidity T-Fund Mgmt,Purchase,77.360,$1.00,-$77.36
+02/08/17,iShares Rate Hedged Hi Yld,Dividend,,,$3.04
+02/09/17,BlackRock Liquidity T-Fund Mgmt,Purchase,3.040,$1.00,-$3.04
+02/10/17,BlackRock Liquidity T-Fund Mgmt,Sale,-759.070,$1.00,$759.07
+03/07/17,iShares Barclays 7-10 Year Treasury,Dividend,,,$4.06
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+03/07/17,iShares Barclay Agency Bond Fund,Dividend,,,$2.32
+03/07/17,iShares iBoxx High Yield Corporate Bd,Dividend,,,$4.22
+03/07/17,iShares Barclays Intermediate Crdt Bd,Dividend,,,$62.67
+03/07/17,iShares Barclays 10-20 Year Treas Bd,Dividend,,,$2.53
+03/07/17,iShares 0-5 Year High Yield Corp ETF,Dividend,,,$4.58
+03/08/17,BlackRock Liquidity T-Fund Mgmt,Purchase,80.380,$1.00,-$80.38
+03/08/17,iShares Rate Hedged Hi Yld,Dividend,,,$3.65
+03/09/17,BlackRock Liquidity T-Fund Mgmt,Purchase,3.650,$1.00,-$3.65
+03/24/17,iShares Barclays 7-10 Year Treasury,Sale,-28.000,$105.51,"$2,954.09"
+03/24/17,iShares Barclays 1-3 Yr Trs Bond,Purchase,18.000,$84.50,"-$1,521.00"
+03/24/17,iShares Barclay Agency Bond Fund,Purchase,17.000,$113.31,"-$1,926.27"
+03/24/17,iShares iBoxx High Yield Corporate Bd,Sale,-11.000,$86.70,$953.68
+03/24/17,iShares Barclays Intermediate Crdt Bd,Sale,-19.000,$108.80,"$2,067.17"
+03/24/17,iShares Barclays 10-20 Year Treas Bd,Sale,-14.000,$134.24,"$1,879.32"
+03/24/17,iShares Barclays 3-7 Year Treasury Bond,Purchase,19.000,$122.92,"-$2,335.48"
+03/24/17,iShares Rate Hedged Hi Yld,Sale,-11.000,$89.89,$988.77
+03/24/17,iShares 0-5 Year High Yield Corp ETF,Sale,-20.000,$47.30,$945.98
+03/24/17,PowerShares Senior Loan Port,Purchase,168.000,$23.18,"-$3,894.24"
+03/29/17,BlackRock Liquidity T-Fund Mgmt,Purchase,112.020,$1.00,-$112.02
+03/31/17,BlackRock Liquidity T-Fund Mgmt,Dividend,,,$0.03

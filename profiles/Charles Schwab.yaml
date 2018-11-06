@@ -1,0 +1,10 @@
+mapping:
+  Date: Date
+  Description: Security Name
+  Action: Transaction Type
+  Quantity: Shares
+  Price: Transaction Price
+  Amount: Amount
+
+options:
+  skiprows: 0

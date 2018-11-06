@@ -1,0 +1,7 @@
+mapping:
+  Date: Date
+  Description: Security Name
+  Activity Type: Transaction Type
+  Quantity: Shares
+  Price: Transaction Price
+  Amount: Amount

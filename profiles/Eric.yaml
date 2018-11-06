@@ -1,0 +1,7 @@
+options:
+  fields:
+    - Tp
+    - Warranty
+  stopwords:
+    - "Invoice Total:"
+  v_align: top

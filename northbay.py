@@ -18,19 +18,15 @@ xlsx = r"C:\Users\zluety\Downloads\tabula-201807 VV RBC Trust Stmt.xlsx"
 
 # options are used to help format the data correctly
 options = {
-    'fields': ['Date',
-               'Quantity',
-               'Description',
-               'Security Name',
-               'Receipt',
-               'Disb'],
+    "fields": ["Date", "Quantity", "Description", "Security Name", "Receipt", "Disb"]
 }
 
 # formats the csv to be so it can be used with the Schedule D tool
 with ScheduleDCsvParser(csv, options) as raw_csv:
-    tables = extract_tables(raw_csv, options.get('fields'))
-    df = pd.concat([pd.read_csv(StringIO('\r\n'.join(table)))
-                    for table in tables]).reset_index(drop=True)
+    tables = extract_tables(raw_csv, options.get("fields"))
+    df = pd.concat(
+        [pd.read_csv(StringIO("\r\n".join(table))) for table in tables]
+    ).reset_index(drop=True)
 
     # safe output to excel
     writer = pd.ExcelWriter(xlsx)

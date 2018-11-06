@@ -1,0 +1,27 @@
+mapping:
+  DATE: Date
+  DESCRIPTION: Security Name
+  CHECK NUMBER: Transaction Type
+  QUANTITY: Shares
+  PRICE: Transaction Price
+  AMOUNT: Amount
+
+options:
+  fields:
+      - DATE
+      - ACCOUNT TYPE
+      - CHECK NUMBER
+      - QUANTITY
+      - DESCRIPTION
+      - PRICE
+      - AMOUNT
+      - BALANCES
+
+  stopwords:
+      - Our Cash Sweep program
+      - Total Deposits
+      - Total Income and distributions
+      - Total Securities purchased
+      - Total Securities sold and
+      - Total Other subtractions and fees
+      - Income on non-reportable accounts

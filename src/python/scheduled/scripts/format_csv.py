@@ -5,33 +5,24 @@ from pandas.io.common import EmptyDataError
 
 from scheduled.parser import ScheduleDCsvParser
 from scheduled.utils import extract_tables
-from scheduled.utils import format_output
+from scheduled.utils import format_output, read_profile
 
-csv_file = r"C:\Users\zluety\Desktop\2017Q3 HIM560113-G8Forward.csv"
-output_file = r"C:\Users\zluety\Desktop\2017Q3 HIM560113-G8Forward.xlsx"
+csv_file = r"C:\Users\zluety\Desktop\201712 VV RBC Trust Stmt.csv"
+output_file = r"C:\Users\zluety\Desktop\201712 VV RBC Trust Stmt.xlsx"
 
-# Horter options and mapping
+# mock profile options
 options = {
     "v_align": "top",
-    "fields": [
-        "Date",
-        "Activity",
-        "Quantity",
-        "Description",
-        "Trade Execution Fee",
-        "Other Fees",
-        "Price",
-        "Amount",
-    ],
+    "fields": ["Date", "Quantity", "Description", "Security Name", "Receipt", "Disb"],
 }
 
 mapping = {
     "Date": "Date",
-    "Description": "Security Name",
-    "Activity": "Transaction Type",
+    "Security Name": "Security Name",
+    "Description": "Transaction Type",
     "Quantity": "Shares",
-    "Price": "Transaction Price",
-    "Amount": "Amount",
+    "Receipt": "Transaction Price",
+    "Disb": "Amount",
 }
 
 
