@@ -1,4 +1,0 @@
-
-        [console_scripts]
-        extract=scheduled.scripts.cli:run_app
-    
