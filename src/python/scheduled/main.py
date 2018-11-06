@@ -26,6 +26,7 @@ def load_profile(filename):
 
 
 def get_filename_from_name(name):
+    """Finds the path to the correct file given name"""
     for file in os.listdir(PROFILES_DIR):
         filename = os.path.join(PROFILES_DIR, file)
         with open(filename, "r") as y:
@@ -40,15 +41,28 @@ def get_filename_from_name(name):
 
 def extract_data(src, profile):
     """Extract data from src using profile."""
+    _, ext = os.path.splitext(src)
 
-    # read pandas args from profile
+    if ext == '.csv':
+        pandas_args = get_pandas_args(profile)
+        transaction_data = pd.read_csv(src, **pandas_args)
+    elif ext == '.xlsx' or '.xls':
+        pandas_args = get_pandas_args(profile)
+        transaction_data = pd.read_excel(src, **pandas_args)
+    else:
+        raise ValueError("Unsupported file extension")
+
+    return transaction_data
+
+
+def get_pandas_args(profile):
+    """Get the pandas arguments from profile."""
     pandas_args = profile.get("options").get("pandas")
+
     if pandas_args is None:
         pandas_args = {}
 
-    transaction_data = pd.read_excel(src, **pandas_args)
-
-    return transaction_data
+    return pandas_args
 
 
 def save(transaction_data, dst):

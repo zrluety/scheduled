@@ -1,0 +1,9 @@
+name: US Bank
+
+mapping:
+  amount: Transaction Amount
+  date: Transaction Date
+  security name: Asset Short Name
+  shares: Shares/Units
+  transaction price: Ticker
+  transaction type: Transaction Type Explanation
