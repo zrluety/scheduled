@@ -43,7 +43,7 @@ class CsvExtractor(Extractor):
     def extract(self, source, options=None):
         if not options:
             options = {}
-        df = read_csv(source, **options)
+        df = read_csv(source)
         return df
 
 
@@ -55,7 +55,7 @@ class ExcelExtractor(Extractor):
         if not options:
             options = {}
 
-        df = read_excel(source, **options)
+        df = read_excel(source)
         return df
 
 

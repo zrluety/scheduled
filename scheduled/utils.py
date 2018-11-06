@@ -2,6 +2,9 @@ import yaml
 import os
 from pandas import to_datetime
 
+# These is the expected structure of the output dataframe
+STRUCT = ['Date', 'Security Name', 'Transaction Type', 'Shares', 'Transaction Price', 'Amount']
+
 CONSTANTS = {
     'PROJECT_PATH': os.path.abspath(os.path.dirname(os.path.dirname(__file__))),
     'JAR': os.path.join(os.path.abspath(os.path.dirname(os.path.dirname(__file__))), 'resources', 'jar',
@@ -41,7 +44,8 @@ def format_output(df, mapping):
     df = order_columns(df, mapping)
     df = order_by_first(df)
     name_columns(df, mapping)
-    return df
+    df = include_missing_columns(df)
+    return df[STRUCT]
 
 
 def remove_unmapped_columns(df, mapping):
@@ -116,4 +120,9 @@ def order_by_first(df):
     return df[cols]
 
 
+def include_missing_columns(df):
+    """Inserts blank columns for any columns missing from the expected structure."""
+    missing_columns = [col for col in STRUCT if col not in list(df)]
 
+    # include the mising columns
+    return df.reindex(columns=list(df) + missing_columns)
