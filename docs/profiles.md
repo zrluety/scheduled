@@ -11,7 +11,7 @@ Before you can use a bank with the Schedule D application, a bank profile needs 
 The name property is what the analyst selects in the Populate Schedule D workbook to use a given profile. When the Populate Schedule D workbook is opened, all profiles in the profiles.json file are loaded as options to choose from. To refresh the list of available profiles, run the following in the terminal.
 
 ```python
-python manage.py refresh
+scheduled refresh
 ```
 
 ## Mapping
