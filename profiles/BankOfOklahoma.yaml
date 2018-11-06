@@ -1,0 +1,29 @@
+name: Bank Of Oklahoma
+
+mapping:
+  amount: Cost
+  date: Date
+  security name: Ticker
+  shares: Quantity
+  transaction price: Cash
+  transaction type: Description
+
+options:
+  columns:
+    - Date
+    - Ticker
+    - Security
+    - Description
+    - Cash
+    - Quantity
+    - Cost
+  pandas:
+    skiprows: 7
+    names:
+      - Date
+      - Ticker
+      - Security
+      - Description
+      - Cash
+      - Quantity
+      - Cost
