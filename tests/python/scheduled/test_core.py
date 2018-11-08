@@ -41,7 +41,7 @@ def test_columns_are_mapped():
     df = DataFrame(
         data, columns=["Cost", "Date", "Ticker", "Quantity", "Cash", "Description"]
     )
-    renamed_df = main.rename(df, profile)
+    renamed_df = main.rename_cols(df, profile)
     assert list(renamed_df.columns) == [
         "amount",
         "date",
@@ -50,3 +50,40 @@ def test_columns_are_mapped():
         "transaction price",
         "transaction type",
     ]
+
+
+def test_failing_test():
+    STRUCT = [
+        "date",
+        "security name",
+        "transaction type",
+        "shares",
+        "transaction price",
+        "amount",
+    ]
+
+    data = [
+        [
+            209.95,
+            datetime.date(year=2018, month=11, day=7),
+            "AAPL",
+            1.0,
+            -209.95,
+            "Purchase",
+        ]
+    ]
+
+    df = DataFrame(
+        data,
+        columns=[
+            "amount",
+            "date",
+            "security name",
+            "shares",
+            "transaction price",
+            "transaction type",
+        ],
+    )
+
+    reordered_df = main.reorder_cols(df)
+    assert list(reordered_df.columns) == STRUCT

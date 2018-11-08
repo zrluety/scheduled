@@ -71,9 +71,23 @@ def save(transaction_data, dst):
     transaction_data.to_excel(writer, "Transactions", index=False, header=False)
 
 
-def rename(df: DataFrame, profile):
+def rename_cols(df: DataFrame, profile):
     """Map columns to the standard template."""
-    old_names = profile.get('mapping').values()
-    new_names = profile.get('mapping').keys()
-    
+    old_names = profile.get("mapping").values()
+    new_names = profile.get("mapping").keys()
+
     return df.rename(index=str, columns=dict(zip(old_names, new_names)))
+
+
+def reorder_cols(df: DataFrame):
+    """Order columns to standard template."""
+    return df[
+        [
+            "date",
+            "security name",
+            "transaction type",
+            "shares",
+            "transaction price",
+            "amount",
+        ]
+    ]
