@@ -15,7 +15,9 @@ fileConfig(LOGGING_CONFIG)
 
 
 class Session:
-    def __init__(self, source, profile, scheduled, dest, username=None, develop=False):
+    def __init__(
+        self, source, profile, scheduled, dest, username=None, develop=False
+    ):
         self.source = source
         self._given_profile = profile
         # A single _given_profile can have variations
@@ -68,4 +70,6 @@ class Session:
                 break
 
             if not success:
-                self._logger.info("Unable to successfully extract data from the source")
+                self._logger.info(
+                    "Unable to successfully extract data from the source"
+                )

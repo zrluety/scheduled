@@ -18,7 +18,14 @@ xlsx = r"C:\Users\zluety\Downloads\tabula-201807 VV RBC Trust Stmt.xlsx"
 
 # options are used to help format the data correctly
 options = {
-    "fields": ["Date", "Quantity", "Description", "Security Name", "Receipt", "Disb"]
+    "fields": [
+        "Date",
+        "Quantity",
+        "Description",
+        "Security Name",
+        "Receipt",
+        "Disb",
+    ]
 }
 
 # formats the csv to be so it can be used with the Schedule D tool

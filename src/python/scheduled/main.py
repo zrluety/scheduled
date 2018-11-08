@@ -7,7 +7,9 @@ from pandas import DataFrame
 
 DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "data"))
 
-RESOURCES_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "resources"))
+RESOURCES_DIR = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "resources")
+)
 
 
 def run(name, src, dst):
@@ -68,7 +70,9 @@ def get_pandas_args(profile):
 def save(transaction_data, dst):
     """Save transaction_data to dst."""
     writer = pd.ExcelWriter(dst)
-    transaction_data.to_excel(writer, "Transactions", index=False, header=False)
+    transaction_data.to_excel(
+        writer, "Transactions", index=False, header=False
+    )
 
 
 def rename_cols(df: DataFrame, profile):

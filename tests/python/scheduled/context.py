@@ -2,7 +2,9 @@ import os
 import sys
 
 # Setup environment
-TEST_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+TEST_ROOT = os.path.abspath(
+    os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+)
 PROJECT_ROOT = os.path.dirname(TEST_ROOT)
 PACKAGE_ROOT = os.path.join(PROJECT_ROOT, "src", "python")
 sys.path.insert(0, PACKAGE_ROOT)

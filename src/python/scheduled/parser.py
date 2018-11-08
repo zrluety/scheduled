@@ -93,8 +93,12 @@ class ScheduleDCsvParser:
                     # prior table.
                     continue
                 else:
-                    combined_tup = list(zip_longest(full_row, row, fillvalue=""))
-                    full_row = [" ".join(content).strip() for content in combined_tup]
+                    combined_tup = list(
+                        zip_longest(full_row, row, fillvalue="")
+                    )
+                    full_row = [
+                        " ".join(content).strip() for content in combined_tup
+                    ]
         else:
             # if full_row is None we are working with a blank source file and we
             # can raise an EmptyDataError
@@ -133,7 +137,9 @@ class ScheduleDCsvParser:
         stored_row = (
             []
         )  # container that will hold data above the center row until it is merged with the center row.
-        partial = False  # indicator if we are still waiting for more data for the row
+        partial = (
+            False
+        )  # indicator if we are still waiting for more data for the row
         csv_row = []  # row that we will write to our output
         STATE = 1  # current state
 
@@ -151,7 +157,9 @@ class ScheduleDCsvParser:
                     # combine the contents column-wise.
                     it = zip_longest(stored_row.pop(), row, fillvalue="")
                     # create a new csv row.
-                    csv_row.append([" ".join(content).strip() for content in it])
+                    csv_row.append(
+                        [" ".join(content).strip() for content in it]
+                    )
                     partial = True
 
                 STATE = 1
@@ -166,7 +174,9 @@ class ScheduleDCsvParser:
                     if partial:
                         # merge data from below the center axis into the center row
                         it = zip_longest(csv_row.pop(), row, fillvalue="")
-                        csv_row.append([" ".join(content).strip() for content in it])
+                        csv_row.append(
+                            [" ".join(content).strip() for content in it]
+                        )
                         # Add the row to the writer
                         writer.writerow(csv_row.pop())
 

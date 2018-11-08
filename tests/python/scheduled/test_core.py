@@ -39,7 +39,8 @@ def test_columns_are_mapped():
         ]
     ]
     df = DataFrame(
-        data, columns=["Cost", "Date", "Ticker", "Quantity", "Cash", "Description"]
+        data,
+        columns=["Cost", "Date", "Ticker", "Quantity", "Cash", "Description"],
     )
     renamed_df = main.rename_cols(df, profile)
     assert list(renamed_df.columns) == [

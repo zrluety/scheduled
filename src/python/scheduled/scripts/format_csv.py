@@ -13,7 +13,14 @@ output_file = r"C:\Users\zluety\Desktop\201712 VV RBC Trust Stmt.xlsx"
 # mock profile options
 options = {
     "v_align": "top",
-    "fields": ["Date", "Quantity", "Description", "Security Name", "Receipt", "Disb"],
+    "fields": [
+        "Date",
+        "Quantity",
+        "Description",
+        "Security Name",
+        "Receipt",
+        "Disb",
+    ],
 }
 
 mapping = {
