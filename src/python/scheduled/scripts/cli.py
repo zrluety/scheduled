@@ -8,9 +8,7 @@ from .. import main
 
 
 DATA_DIR = os.path.abspath(
-    os.path.join(
-        os.path.dirname(os.path.dirname(__file__)), 'data'
-    )
+    os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 )
 
 
@@ -28,12 +26,12 @@ def run(profile, src, dst):
 
 
 @cli.command()
-@click.option('-p', '--profile-json', help='path to json profile')
+@click.option("-p", "--profile-json", help="path to json profile")
 def refresh(profile_json):
     """Refresh the list of available profiles."""
     data = {}
     data["names"] = []
-    profiles_dir = os.path.join(DATA_DIR, 'profiles')
+    profiles_dir = os.path.join(DATA_DIR, "profiles")
     for file in os.listdir(profiles_dir):
         relpath = os.path.join(profiles_dir, file)
         with open(relpath, "r") as profile:

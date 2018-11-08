@@ -3,9 +3,9 @@ import os
 import pandas as pd
 import yaml
 
-DATA_DIR = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "data")
-)
+from pandas import DataFrame
+
+DATA_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "data"))
 
 RESOURCES_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "resources"))
 
@@ -43,10 +43,10 @@ def extract_data(src, profile):
     """Extract data from src using profile."""
     _, ext = os.path.splitext(src)
 
-    if ext == '.csv':
+    if ext == ".csv":
         pandas_args = get_pandas_args(profile)
         transaction_data = pd.read_csv(src, **pandas_args)
-    elif ext == '.xlsx' or '.xls':
+    elif ext == ".xlsx" or ".xls":
         pandas_args = get_pandas_args(profile)
         transaction_data = pd.read_excel(src, **pandas_args)
     else:
@@ -69,3 +69,11 @@ def save(transaction_data, dst):
     """Save transaction_data to dst."""
     writer = pd.ExcelWriter(dst)
     transaction_data.to_excel(writer, "Transactions", index=False, header=False)
+
+
+def rename(df: DataFrame, profile):
+    """Map columns to the standard template."""
+    old_names = profile.get('mapping').values()
+    new_names = profile.get('mapping').keys()
+    
+    return df.rename(index=str, columns=dict(zip(old_names, new_names)))
