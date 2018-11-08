@@ -59,7 +59,7 @@ def extract_data(src, profile):
 
 def get_pandas_args(profile):
     """Get the pandas arguments from profile."""
-    pandas_args = profile.get("options").get("pandas")
+    pandas_args = profile.get("pandas")
 
     if pandas_args is None:
         pandas_args = {}

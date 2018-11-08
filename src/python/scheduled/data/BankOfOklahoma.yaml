@@ -8,8 +8,18 @@ mapping:
   transaction price: Cash
   transaction type: Description
 
-options:
-  columns:
+columns:
+  - Date
+  - Ticker
+  - Security
+  - Description
+  - Cash
+  - Quantity
+  - Cost
+
+pandas:
+  skiprows: 7
+  names:
     - Date
     - Ticker
     - Security
@@ -17,13 +27,6 @@ options:
     - Cash
     - Quantity
     - Cost
-  pandas:
-    skiprows: 7
-    names:
-      - Date
-      - Ticker
-      - Security
-      - Description
-      - Cash
-      - Quantity
-      - Cost
+
+  plugins:
+    - 'bank_of_oklahoma'
