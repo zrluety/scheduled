@@ -2,29 +2,7 @@ import unittest
 
 from pandas import DataFrame
 
-from .context import utils, sample_profile, bad_profile
-
-
-class TestProfiles(unittest.TestCase):
-    def test_profile_load_method(self):
-        """Test if _given_profile components load correctly."""
-        profile = utils.read_profile(sample_profile)
-        self.assertEqual(profile["method"], "read_csv")
-
-    def test_profile_load_mapping(self):
-        """Test if _given_profile components load correctly."""
-        profile = utils.read_profile(sample_profile)
-        self.assertEqual(profile["mapping"], {"f1": "t1", "f2": "t2"})
-
-    @unittest.expectedFailure
-    def test_profile_fails_without_required_option(self):
-        """Loading a _given_profile without required keys should raise an exception.
-
-        Currently we are not validating the profiles so this method does not pass!
-        """
-
-        with self.assertRaises(KeyError):
-            utils.read_profile(bad_profile)
+from context import utils
 
 
 class TestOutputFunctions(unittest.TestCase):

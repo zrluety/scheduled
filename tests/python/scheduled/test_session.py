@@ -1,7 +1,7 @@
 import unittest
 import logging
 
-from .context import session
+from context import session
 
 
 # helper functions

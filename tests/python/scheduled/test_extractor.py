@@ -4,7 +4,7 @@ from pandas.util.testing import assert_frame_equal
 import unittest
 import xlsxwriter
 
-from .context import extractor, TEST_ROOT, sample_csv
+from context import extractor, TEST_ROOT
 
 
 class TestExtractorBasic(unittest.TestCase):
@@ -58,16 +58,6 @@ class TestExtractorBasic(unittest.TestCase):
             }
         )
         assert_frame_equal(df, expected_df)
-
-    def test_csv_extract_with_options(self):
-        """Options passed from _given_profile to extractor should be used properly."""
-
-        options = {"header": 1}
-        e = extractor.CsvExtractor()
-        df = e.extract(sample_csv, options)
-        headers = list(df)
-
-        self.assertEqual(headers, ["f1", "f2"])
 
     def test_raise_not_implemented_on_base_extract(self):
         """The base extractor class should raise a NotImplementedError when extract is called."""

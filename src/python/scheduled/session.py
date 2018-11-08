@@ -8,7 +8,13 @@ from pandas import ExcelWriter
 from scheduled.extractor import Extractor
 from scheduled.utils import format_output, read_profile
 
-PROJECT_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
+PROJECT_ROOT = os.path.abspath(
+    os.path.dirname(
+        os.path.dirname(
+            os.path.dirname(os.path.dirname(__file__))
+        )
+    )
+)
 PROFILES_ROOT = os.path.join(PROJECT_ROOT, "profiles")
 LOGGING_CONFIG = os.path.join(PROJECT_ROOT, "logging_config.ini")
 fileConfig(LOGGING_CONFIG)
