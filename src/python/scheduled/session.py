@@ -1,81 +1,61 @@
-import getpass
-import logging
-from logging.config import fileConfig
-import os
-
 from pandas import ExcelWriter
 
-from scheduled.extractor import Extractor
-from scheduled.utils import format_output, read_profile
-
-PROJECT_ROOT = os.path.abspath(
-    os.path.dirname(
-        os.path.dirname(
-            os.path.dirname(os.path.dirname(__file__))
-        )
-    )
-)
-PROFILES_ROOT = os.path.join(PROJECT_ROOT, "profiles")
-LOGGING_CONFIG = os.path.join(PROJECT_ROOT, "logging_config.ini")
-fileConfig(LOGGING_CONFIG)
-
+from . import utils
+from . import formatters
 
 class Session:
-    def __init__(
-        self, source, profile, scheduled, dest, username=None, develop=False
-    ):
-        self.source = source
-        self._given_profile = profile
-        # A single _given_profile can have variations
-        self.profiles = [
-            os.path.join(PROFILES_ROOT, p)
-            for p in os.listdir(PROFILES_ROOT)
-            if p.startswith(profile)
-        ]
-        self.scheduled = scheduled
-        self.dest = dest
 
-        if username:
-            self.username = username
-        else:
-            self.username = getpass.getuser()
+    def __init__(self, profile):
+        """Create a Schedule D
+        
+        Parameters
+        ----------
+        profile : str
+            The name of the institution. The name of the institution is used
+            to look up a configuration file containing values used to prepare
+            the Schedule D transaction data.
+        """
+        self.profile = profile
 
-        # setup logging
-        if develop:
-            self._logger = logging.getLogger("develop")
-        else:
-            self._logger = logging.getLogger("production")
+        # options is a dictionary of values used to prepare the Schedule D
+        # transaction data
+        self.options = utils.load_profile(profile)
 
-        msg = "Session created on {self.source} ({self._given_profile}) by {self.username}".format(
-            self=self
+    def read(self, source):
+        """Extract transaction data from client statement.
+        
+        Parameters
+        ----------
+        source : str
+            Path to the statement file.
+        
+        """
+        return utils.read(source, **self.options)
+
+    def format(self, transaction_data):
+        """Format the transaction data according to the Schedule D template.
+        
+        Parameters
+        ----------
+        transaction_data : DataFrame
+            The transaction data
+        
+        """
+        return formatters.format(transaction_data, **self.options)
+
+    def save(self, transaction_data, dest):
+        """Save the transaction data to a file.
+        
+        Parameters
+        ----------
+        transaction_data : DataFrame
+            The transaction data. By the time you are saving the file, the
+            transaction data should match the Schedule D template.
+        dest : str
+            Path to save the file to.
+        
+        """
+        writer = pd.ExcelWriter(dst)
+        transaction_data.to_excel(
+            writer, "Transactions", index=False, header=False
         )
-        self._logger.info(msg)
-
-    def run(self):
-        extractor = Extractor.factory(os.path.splitext(self.source)[1])
-        success = False
-
-        for profile in self.profiles:
-            with open(profile) as f:
-                y = read_profile(f)
-                mapping = y.get("mapping")
-                options = y.get("options")
-
-            df = extractor.extract(self.source, options)
-
-            if not df.empty:
-                self._logger.info(
-                    "The following profile was used for extraction: "
-                    + os.path.basename(profile)
-                )
-                success = True
-                output_df = format_output(df, mapping)
-                writer = ExcelWriter(self.dest)
-                output_df.to_excel(writer, "Sheet1", index=False, header=False)
-                writer.save()
-                break
-
-            if not success:
-                self._logger.info(
-                    "Unable to successfully extract data from the source"
-                )

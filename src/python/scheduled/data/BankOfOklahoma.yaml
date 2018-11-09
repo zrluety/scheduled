@@ -17,7 +17,7 @@ columns:
   - Quantity
   - Cost
 
-pandas:
+pandas_args:
   skiprows: 7
   names:
     - Date
@@ -28,5 +28,5 @@ pandas:
     - Quantity
     - Cost
 
-  plugins:
-    - 'bank_of_oklahoma'
+plugins:
+  - 'bank_of_oklahoma'

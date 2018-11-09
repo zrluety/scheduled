@@ -2,16 +2,16 @@ import datetime
 import os
 
 from pandas import DataFrame
-from context import main
+from context import api
 
 
 def test_load_profile_contains_mapping():
     # test that the mapping section exists
-    filename = os.path.join(main.DATA_DIR, "BankOfOklahoma.yaml")
+    filename = os.path.join(api.DATA_DIR, "BankOfOklahoma.yaml")
 
     assert os.path.exists(filename)
 
-    profile = main.load_profile(filename)
+    profile = api.load_profile(filename)
 
     assert profile.get("mapping") is not None
 
@@ -42,7 +42,7 @@ def test_columns_are_mapped():
         data,
         columns=["Cost", "Date", "Ticker", "Quantity", "Cash", "Description"],
     )
-    renamed_df = main.rename_cols(df, profile)
+    renamed_df = api.rename_cols(df, profile)
     assert list(renamed_df.columns) == [
         "amount",
         "date",
@@ -86,5 +86,5 @@ def test_failing_test():
         ],
     )
 
-    reordered_df = main.reorder_cols(df)
+    reordered_df = api.reorder_cols(df)
     assert list(reordered_df.columns) == STRUCT

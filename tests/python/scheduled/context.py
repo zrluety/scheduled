@@ -10,7 +10,7 @@ PACKAGE_ROOT = os.path.join(PROJECT_ROOT, "src", "python")
 sys.path.insert(0, PACKAGE_ROOT)
 
 import scheduled
-import scheduled.main as main
+import scheduled.api as api
 import scheduled.plugins as plugins
 import scheduled.utils as utils
 import scheduled.extractor as extractor

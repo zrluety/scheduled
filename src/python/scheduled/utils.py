@@ -1,6 +1,57 @@
 import yaml
+from pandas import read_csv, read_excel
+
+
+def load_profile(name):
+    """Load a bank profile from filename."""
+    filename = _get_filename_from_name(name)
+    with open(filename, "r") as f:
+        options = yaml.load(f)
+
+    return options
+
+
+def read(source, pandas_args=None, **kwargs):
+    """Extract transaction data from client statement
+    
+    Parameters
+    ----------
+    source : str
+        Path to statement file.
+    pandas_args : dict, optional
+        A dictionary of optional arguments to pass to the pandas_args read method
+        (the default is None, which will use the default arguments for reading
+        the file).
+    
+    """
+    _, ext = os.path.splitext(source)
+
+    if pandas_args is None:
+        pandas_args = {}
+
+    if ext == ".csv":
+        tansaction_data = read_csv(source, **pandas_args)
+    elif ext == ".xlsx" or ext == ".xls":
+        transaction_data = read_excel(source, **pandas_args)
+    else:
+        raise ValueError("Unsupported file type")
+
+
+def _get_filename_from_name(name):
+    """Finds the path to the correct file given name"""
+    for file in os.listdir(DATA_DIR):
+        filename = os.path.join(DATA_DIR, file)
+        with open(filename, "r") as y:
+            profile = yaml.load(y)
+
+            if profile.get("name") == name:
+                return filename
+
+    # if name is not found, raise error.
+    raise FileNotFoundError(f"No profile was found with the name {name}")
+
 import os
-from pandas import to_datetime
+from pandas_args import to_datetime
 
 # These is the expected structure of the output dataframe
 STRUCT = [
@@ -28,6 +79,8 @@ CONSTANTS = {
         "tmp",
     ),
 }
+
+
 
 
 def read_profile(stream):
