@@ -4,7 +4,7 @@ import os
 import click
 import yaml
 
-from .. import main
+from scheduled.session import Session
 
 
 DATA_DIR = os.path.abspath(
@@ -19,10 +19,13 @@ def cli():
 
 @cli.command()
 @click.argument("profile")
-@click.argument("src")
-@click.argument("dst")
-def run(profile, src, dst):
-    main.run(profile, src, dst)
+@click.argument("source")
+@click.argument("dest")
+def run(profile, source, dest):
+    s = Session(profile)
+    transaction_data = s.read(source)
+    formatted_transaction_data = s.format(transaction_data)
+    s.save(formatted_transaction_data, dest)
 
 
 @cli.command()
@@ -31,7 +34,7 @@ def refresh(profile_json):
     """Refresh the list of available profiles."""
     data = {}
     data["names"] = []
-    profiles_dir = os.path.join(DATA_DIR, "profiles")
+    profiles_dir = DATA_DIR
     for file in os.listdir(profiles_dir):
         relpath = os.path.join(profiles_dir, file)
         with open(relpath, "r") as profile:
