@@ -32,7 +32,7 @@ class TestSessionBasic(unittest.TestCase):
 
         self.assertEqual(_get_lvl(s._logger), "DEBUG")
 
-    @pytest.mark.skip(reason="Sessions have been completely reworked")    
+    @pytest.mark.skip(reason="Sessions have been completely reworked")
     def test_production_log_level(self):
         """The log level during production should be info."""
         # Create Session object.

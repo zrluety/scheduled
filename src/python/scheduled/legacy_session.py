@@ -9,11 +9,7 @@ from scheduled.extractor import Extractor
 from scheduled.utils import format_output, read_profile
 
 PROJECT_ROOT = os.path.abspath(
-    os.path.dirname(
-        os.path.dirname(
-            os.path.dirname(os.path.dirname(__file__))
-        )
-    )
+    os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 )
 PROFILES_ROOT = os.path.join(PROJECT_ROOT, "profiles")
 LOGGING_CONFIG = os.path.join(PROJECT_ROOT, "logging_config.ini")
@@ -21,9 +17,7 @@ fileConfig(LOGGING_CONFIG)
 
 
 class Session:
-    def __init__(
-        self, source, profile, scheduled, dest, username=None, develop=False
-    ):
+    def __init__(self, source, profile, scheduled, dest, username=None, develop=False):
         self.source = source
         self._given_profile = profile
         # A single _given_profile can have variations
@@ -76,6 +70,4 @@ class Session:
                 break
 
             if not success:
-                self._logger.info(
-                    "Unable to successfully extract data from the source"
-                )
+                self._logger.info("Unable to successfully extract data from the source")

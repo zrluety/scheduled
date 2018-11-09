@@ -40,10 +40,9 @@ def test_columns_are_mapped():
         ]
     ]
     df = DataFrame(
-        data,
-        columns=["Cost", "Date", "Ticker", "Quantity", "Cash", "Description"],
+        data, columns=["Cost", "Date", "Ticker", "Quantity", "Cash", "Description"]
     )
-    renamed_df = formatters.rename_cols(df, mapping=profile.get('mapping'))
+    renamed_df = formatters.rename_cols(df, mapping=profile.get("mapping"))
     assert list(renamed_df.columns) == [
         "amount",
         "date",

@@ -3,7 +3,8 @@ import os
 import yaml
 from pandas import read_csv, read_excel, to_datetime
 
-DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
+DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
+
 
 def load_profile(name):
     """Load a bank profile from filename."""
@@ -39,6 +40,8 @@ def read(source, pandas_args=None, **kwargs):
     else:
         raise ValueError("Unsupported file type")
 
+    return transaction_data
+
 
 def _get_filename_from_name(name):
     """Finds the path to the correct file given name"""
@@ -65,9 +68,7 @@ STRUCT = [
 ]
 
 CONSTANTS = {
-    "PROJECT_PATH": os.path.abspath(
-        os.path.dirname(os.path.dirname(__file__))
-    ),
+    "PROJECT_PATH": os.path.abspath(os.path.dirname(os.path.dirname(__file__))),
     "JAR": os.path.join(
         os.path.abspath(os.path.dirname(os.path.dirname(__file__))),
         "resources",
@@ -75,13 +76,9 @@ CONSTANTS = {
         "scheduled-1.1.jar",
     ),
     "TMP": os.path.join(
-        os.path.abspath(os.path.dirname(os.path.dirname(__file__))),
-        "resources",
-        "tmp",
+        os.path.abspath(os.path.dirname(os.path.dirname(__file__))), "resources", "tmp"
     ),
 }
-
-
 
 
 def read_profile(stream):
@@ -179,9 +176,7 @@ def order_by_first(df):
     cols = df.columns
 
     try:
-        df["TEMP_SORT_COL"] = to_datetime(
-            df[df.columns[0]], infer_datetime_format=True
-        )
+        df["TEMP_SORT_COL"] = to_datetime(df[df.columns[0]], infer_datetime_format=True)
         df.sort_values(by="TEMP_SORT_COL", inplace=True)
     except:
         # This does not guarantee proper ordering if the date cannot be inferred from

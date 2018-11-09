@@ -1,3 +1,6 @@
+from .plugins import load_plugins
+
+
 def format(transaction_data, mapping, plugins=None, **kwargs):
     """Format the transaction data according to the Schedule D template.
     
@@ -19,7 +22,7 @@ def format(transaction_data, mapping, plugins=None, **kwargs):
     copy = rename_cols(copy, mapping)
     copy = subset_and_order(copy)
 
-    for func in plugins:
+    for func in load_plugins(plugins):
         copy = func(copy)
 
     return copy

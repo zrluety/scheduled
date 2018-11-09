@@ -3,8 +3,8 @@ from pandas import ExcelWriter
 from . import utils
 from . import formatters
 
-class Session:
 
+class Session:
     def __init__(self, profile):
         """Create a Schedule D
         
@@ -56,6 +56,4 @@ class Session:
         
         """
         writer = pd.ExcelWriter(dst)
-        transaction_data.to_excel(
-            writer, "Transactions", index=False, header=False
-        )
+        transaction_data.to_excel(writer, "Transactions", index=False, header=False)
