@@ -11,6 +11,7 @@ sys.path.insert(0, PACKAGE_ROOT)
 
 import scheduled
 import scheduled.api as api
+import scheduled.formatters as formatters
 import scheduled.plugins as plugins
 import scheduled.utils as utils
 import scheduled.extractor as extractor

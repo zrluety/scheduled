@@ -40,12 +40,12 @@ def rename_cols(transaction_data, mapping):
     old_names = mapping.values()
     new_names = mapping.keys()
 
-    return df.rename(index=str, columns=dict(zip(old_names, new_names)))
+    return transaction_data.rename(index=str, columns=dict(zip(old_names, new_names)))
 
 
 def subset_and_order(transaction_data):
     """Order columns to standard template."""
-    return df[
+    return transaction_data[
         [
             "date",
             "security name",

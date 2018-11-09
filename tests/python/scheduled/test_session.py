@@ -2,6 +2,7 @@ import unittest
 import logging
 
 from context import session
+import pytest
 
 
 # helper functions
@@ -16,6 +17,7 @@ def _get_lvl(logger):
 
 
 class TestSessionBasic(unittest.TestCase):
+    @pytest.mark.skip(reason="Sessions have been completely reworked")
     def test_develop_log_level(self):
         """The log level during develop should be debug."""
         # Create Session object.
@@ -30,6 +32,7 @@ class TestSessionBasic(unittest.TestCase):
 
         self.assertEqual(_get_lvl(s._logger), "DEBUG")
 
+    @pytest.mark.skip(reason="Sessions have been completely reworked")    
     def test_production_log_level(self):
         """The log level during production should be info."""
         # Create Session object.

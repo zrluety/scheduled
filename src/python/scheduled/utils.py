@@ -1,6 +1,9 @@
-import yaml
-from pandas import read_csv, read_excel
+import os
 
+import yaml
+from pandas import read_csv, read_excel, to_datetime
+
+DATA_DIR = os.path.join(os.path.dirname(__file__), 'data')
 
 def load_profile(name):
     """Load a bank profile from filename."""
@@ -50,8 +53,6 @@ def _get_filename_from_name(name):
     # if name is not found, raise error.
     raise FileNotFoundError(f"No profile was found with the name {name}")
 
-import os
-from pandas_args import to_datetime
 
 # These is the expected structure of the output dataframe
 STRUCT = [
