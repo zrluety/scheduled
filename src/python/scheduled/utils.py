@@ -2,6 +2,7 @@ import os
 
 import yaml
 from pandas import read_csv, read_excel, to_datetime
+from .pdf import read_pdf
 
 DATA_DIR = os.path.join(os.path.dirname(__file__), "data")
 
@@ -28,15 +29,19 @@ def read(source, pandas_args=None, **kwargs):
         the file).
     
     """
-    _, ext = os.path.splitext(source)
+    base, ext = os.path.splitext(source)
 
     if pandas_args is None:
         pandas_args = {}
-
+    
     if ext == ".csv":
         tansaction_data = read_csv(source, **pandas_args)
     elif ext == ".xlsx" or ext == ".xls":
         transaction_data = read_excel(source, **pandas_args)
+    elif ext == ".pdf":
+        if pdf_args is None:
+            pdf_args = {}
+        transaction_data = read_pdf(source, base + .'.csv', **pdf_args)
     else:
         raise ValueError("Unsupported file type")
 
@@ -145,29 +150,7 @@ def name_columns(df, mapping):
     df.rename(index=str, columns=mapping, inplace=True)
 
 
-def extract_tables(stream, fields):
-    rows = stream.getvalue().split("\r\n")
 
-    table = []
-    tables = []
-
-    for row in rows:
-        # If we find every field int he field list in a row, we assume we have
-        # found a header row. First load the current table into a dataframe,
-        # then we begin building the next table.
-        if all([field in row for field in fields]):
-
-            # Load current table into frame if it exists
-            if table:
-                tables.append(table)
-                table = []
-
-        table.append(row)
-
-    else:
-        tables.append(table)
-
-    return tables
 
 
 def order_by_first(df):

@@ -11,6 +11,7 @@ xlsxwriter = "*"
 xlrd = "*"
 black = "*"
 pytest-runner = "*"
+tabula-py = "*"
 
 [dev-packages]
 pytest = "*"

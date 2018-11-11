@@ -1,29 +1,24 @@
 import os
+import subprocess
 
-class PdfExtractor:
-    def __init__(self):
-        self.jar = os.path.join
+from .parser import ScheduleDCsvParser
 
+SCHEDULED_JAR = os.path.join(os.path.dirname(__file__), 'data', 'scheduled-1.1.jar')
 
-    def extract(self, source, options=None):
-
-        o_file = os.path.join(
-            CONSTANTS.get("TMP"), os.path.splitext(os.path.basename(source))[0] + ".csv"
-        )
-
-        if options.get("stopwords"):
+def read_pdf(filepath, outfilepath, fields, stopwords, **kwargs):
+    if options.get("stopwords"):
             subprocess.run(
                 [
                     "java",
                     "-jar",
-                    CONSTANTS.get("JAR"),
-                    source,
+                    SCHEDULED_JAR,
+                    filepath,
                     "-f",
-                    ",".join(options.get("fields")),
+                    ",".join(fields),
                     "-s",
-                    ",".join(options.get("stopwords")),
+                    ",".join(stopwords),
                     "-o",
-                    o_file,
+                    outfilepath,
                 ]
             )
         else:
@@ -31,22 +26,46 @@ class PdfExtractor:
                 [
                     "java",
                     "-jar",
-                    CONSTANTS.get("JAR"),
-                    source,
+                    SCHEDULED_JAR,
+                    filepath,
                     "-f",
-                    ",".join(options.get("fields")),
+                    ",".join(fields),
                     "-o",
-                    o_file,
+                    outfilepath,
                 ]
             )
 
-        with ScheduleDCsvParser(o_file, options) as raw_csv:
-            try:
-                tables = extract_tables(raw_csv, options.get("fields"))
-                df = concat(
-                    [read_csv(StringIO("\r\n".join(table))) for table in tables]
-                ).reset_index(drop=True)
-                return df
-            except EmptyDataError:
-                return DataFrame({"Empty": []})
+    with ScheduleDCsvParser(outfilepath, options) as raw_csv:
+        try:
+            tables = extract_tables(raw_csv, options.get("fields"))
+            df = concat(
+                [read_csv(StringIO("\r\n".join(table))) for table in tables]
+            ).reset_index(drop=True)
+            return df
+        except EmptyDataError:
+            return DataFrame({"Empty": []})
 
+
+def extract_tables(stream, fields):
+    rows = stream.getvalue().split("\r\n")
+
+    table = []
+    tables = []
+
+    for row in rows:
+        # If we find every field int he field list in a row, we assume we have
+        # found a header row. First load the current table into a dataframe,
+        # then we begin building the next table.
+        if all([field in row for field in fields]):
+
+            # Load current table into frame if it exists
+            if table:
+                tables.append(table)
+                table = []
+
+        table.append(row)
+
+    else:
+        tables.append(table)
+
+    return tables
