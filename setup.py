@@ -3,8 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name="scheduled",
     version="0.1",
-    packages=["scheduled", "scheduled.scripts"],
-    package_dir={"scheduled": "src/python/scheduled"},
+    packages=find_packages('src/python'),
+    package_dir={'': 'src/python'},
     package_data={"scheduled": ["data/*"]},
     include_package_data=True,
     install_requires=["Click", "Pandas", "pyyaml", "xlrd", "xlsxwriter"],
