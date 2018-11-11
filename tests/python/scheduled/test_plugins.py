@@ -2,9 +2,7 @@ from context import plugins
 
 
 def test_load_plugin():
-    profile = {"plugins": ["dummy_plugin"]}
-
-    funcs = plugins.load_plugin(profile)
+    funcs = plugins.load_plugins(["dummy_plugin"])
     assert len(funcs) == 1
 
     dummy_plugin = funcs[0]

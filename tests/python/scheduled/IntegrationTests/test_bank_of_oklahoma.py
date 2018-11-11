@@ -13,7 +13,7 @@ import scheduled.session as session
 def test_bank_of_oklahoma():
     s = session.Session("Bank Of Oklahoma")
     transaction_data = s.read(
-        os.path.join(TEST_ROOT, 'python', 'IntegrationTests', 'bok.xlsx')
+        os.path.join(TEST_ROOT, 'scheduled', 'IntegrationTests', 'bok.xlsx')
     )
 
     # check data is read from the source file

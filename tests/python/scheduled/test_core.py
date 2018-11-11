@@ -8,11 +8,7 @@ from context import formatters
 
 def test_load_profile_contains_mapping():
     # test that the mapping section exists
-    filename = os.path.join(utils.DATA_DIR, "BankOfOklahoma.yaml")
-
-    assert os.path.exists(filename)
-
-    profile = utils.load_profile(filename)
+    profile = utils.load_profile("Bank Of Oklahoma")
 
     assert profile.get("mapping") is not None
 
