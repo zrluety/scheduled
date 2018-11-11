@@ -5,7 +5,7 @@ setup(
     version="0.1",
     packages=["scheduled", "scheduled.scripts"],
     package_dir={"scheduled": "src/python/scheduled"},
-    package_data={"scheduled": ["data/*.yaml"]},
+    package_data={"scheduled": ["data/*"]},
     include_package_data=True,
     install_requires=["Click", "Pandas", "pyyaml", "xlrd", "xlsxwriter"],
     entry_points="""
