@@ -8,7 +8,7 @@ mapping:
   transaction price: Transaction Price
   transaction type: Transaction Type
 
-pdf args:
+pdf_args:
   names:
     - Date
     - Security Name
@@ -18,4 +18,4 @@ pdf args:
     - Amount
   stopwords:
     - This transaction reflects deductions of transaction fees charged by brokerage
-  vertical alignment: center
+  v_align: center

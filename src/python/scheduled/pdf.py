@@ -1,12 +1,16 @@
 import os
 import subprocess
+from io import StringIO
+
+from pandas import concat, read_csv
+from pandas.errors import EmptyDataError
 
 from .parser import ScheduleDCsvParser
 
 SCHEDULED_JAR = os.path.join(os.path.dirname(__file__), 'data', 'scheduled-1.1.jar')
 
-def read_pdf(filepath, outfilepath, fields, stopwords, **kwargs):
-    if options.get("stopwords"):
+def read_pdf(filepath, outfilepath, names, stopwords, v_align):
+    if stopwords:
         subprocess.run(
             [
                 "java",
@@ -14,7 +18,7 @@ def read_pdf(filepath, outfilepath, fields, stopwords, **kwargs):
                 SCHEDULED_JAR,
                 filepath,
                 "-f",
-                ",".join(fields),
+                ",".join(names),
                 "-s",
                 ",".join(stopwords),
                 "-o",
@@ -29,15 +33,15 @@ def read_pdf(filepath, outfilepath, fields, stopwords, **kwargs):
                 SCHEDULED_JAR,
                 filepath,
                 "-f",
-                ",".join(fields),
+                ",".join(names),
                 "-o",
                 outfilepath,
             ]
         )
 
-    with ScheduleDCsvParser(outfilepath, options) as raw_csv:
+    with ScheduleDCsvParser(outfilepath, names, v_align) as raw_csv:
         try:
-            tables = extract_tables(raw_csv, options.get("fields"))
+            tables = extract_tables(raw_csv, names)
             df = concat(
                 [read_csv(StringIO("\r\n".join(table))) for table in tables]
             ).reset_index(drop=True)
@@ -46,7 +50,7 @@ def read_pdf(filepath, outfilepath, fields, stopwords, **kwargs):
             return DataFrame({"Empty": []})
 
 
-def extract_tables(stream, fields):
+def extract_tables(stream, names):
     rows = stream.getvalue().split("\r\n")
 
     table = []
@@ -56,7 +60,7 @@ def extract_tables(stream, fields):
         # If we find every field int he field list in a row, we assume we have
         # found a header row. First load the current table into a dataframe,
         # then we begin building the next table.
-        if all([field in row for field in fields]):
+        if all([field in row for field in names]):
 
             # Load current table into frame if it exists
             if table:

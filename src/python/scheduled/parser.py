@@ -35,7 +35,7 @@ class ScheduleDCsvParser:
         filename (str): The name of the file to read
     """
 
-    def __init__(self, filename, options):
+    def __init__(self, filename, fields, v_align='top'):
         try:
             self.file = open(filename)
         except TypeError:
@@ -43,10 +43,10 @@ class ScheduleDCsvParser:
             self.file = filename
         self.stream = StringIO()
         # call the appropriate csv parsing/combining algorithm
-        if options.get("v_align") == "center":
+        if v_align == "center":
             self.parse_vertically_centered_rows(self.file)
         else:
-            self.merge_rows(self.file, options)
+            self.merge_rows(self.file, fields)
 
         self.file.close()
 
@@ -56,7 +56,7 @@ class ScheduleDCsvParser:
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.stream.close()
 
-    def merge_rows(self, file, options):
+    def merge_rows(self, file, fields):
         """Reads the given multiline csv file into a properly formatted StringIO.
         
         Args:
@@ -87,7 +87,7 @@ class ScheduleDCsvParser:
             # TODO: prevent appending to header rows, this messes up pandas unioning method.
             # If the row is incomplete, append it to nearest above complete row.
             else:
-                if isheader(full_row, options.get("fields")):
+                if isheader(full_row, fields):
                     # This prevents appending to a header row but also loses the data in
                     # the current row. This should be changed to merge to the row within the
                     # prior table.

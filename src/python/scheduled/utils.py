@@ -16,7 +16,7 @@ def load_profile(name):
     return options
 
 
-def read(source, pandas_args=None, **kwargs):
+def read(source, pandas_args=None, pdf_args=None, **kwargs):
     """Extract transaction data from client statement
     
     Parameters
