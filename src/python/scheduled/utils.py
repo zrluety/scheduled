@@ -41,7 +41,7 @@ def read(source, pandas_args=None, **kwargs):
     elif ext == ".pdf":
         if pdf_args is None:
             pdf_args = {}
-        transaction_data = read_pdf(source, base + .'.csv', **pdf_args)
+        transaction_data = read_pdf(source, base + '.csv', **pdf_args)
     else:
         raise ValueError("Unsupported file type")
 

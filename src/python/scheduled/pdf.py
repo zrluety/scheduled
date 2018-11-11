@@ -7,33 +7,33 @@ SCHEDULED_JAR = os.path.join(os.path.dirname(__file__), 'data', 'scheduled-1.1.j
 
 def read_pdf(filepath, outfilepath, fields, stopwords, **kwargs):
     if options.get("stopwords"):
-            subprocess.run(
-                [
-                    "java",
-                    "-jar",
-                    SCHEDULED_JAR,
-                    filepath,
-                    "-f",
-                    ",".join(fields),
-                    "-s",
-                    ",".join(stopwords),
-                    "-o",
-                    outfilepath,
-                ]
-            )
-        else:
-            subprocess.run(
-                [
-                    "java",
-                    "-jar",
-                    SCHEDULED_JAR,
-                    filepath,
-                    "-f",
-                    ",".join(fields),
-                    "-o",
-                    outfilepath,
-                ]
-            )
+        subprocess.run(
+            [
+                "java",
+                "-jar",
+                SCHEDULED_JAR,
+                filepath,
+                "-f",
+                ",".join(fields),
+                "-s",
+                ",".join(stopwords),
+                "-o",
+                outfilepath,
+            ]
+        )
+    else:
+        subprocess.run(
+            [
+                "java",
+                "-jar",
+                SCHEDULED_JAR,
+                filepath,
+                "-f",
+                ",".join(fields),
+                "-o",
+                outfilepath,
+            ]
+        )
 
     with ScheduleDCsvParser(outfilepath, options) as raw_csv:
         try:

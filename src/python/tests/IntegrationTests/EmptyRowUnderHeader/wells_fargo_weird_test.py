@@ -6,7 +6,7 @@ import yaml
 import pytest
 
 from scheduled.parser import ScheduleDCsvParser
-from scheduled.utils import extract_tables
+from scheduled.pdf import extract_tables
 
 # weird_wells_fargo_csv = (
 #     r"G:\!Programs\scheduled\tests\IntegrationTests\EmptyRowUnderHeader\201702 "

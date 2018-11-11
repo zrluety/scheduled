@@ -1,11 +1,7 @@
 import os
 import sys
 
-# Setup environment
-TEST_ROOT = os.path.abspath(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-PROJECT_ROOT = os.path.dirname(TEST_ROOT)
-PACKAGE_ROOT = os.path.join(PROJECT_ROOT, "src", "python")
-sys.path.insert(0, PACKAGE_ROOT)
+from manager import TEST_DATA_DIR
 
 import scheduled.session as session
 
@@ -13,7 +9,7 @@ import scheduled.session as session
 def test_bank_of_oklahoma():
     s = session.Session("Bank Of Oklahoma")
     transaction_data = s.read(
-        os.path.join(TEST_ROOT, 'scheduled', 'IntegrationTests', 'bok.xlsx')
+        os.path.join(TEST_DATA_DIR, 'bok.xlsx')
     )
 
     # check data is read from the source file

@@ -12,6 +12,5 @@ import scheduled.api as api
 import scheduled.formatters as formatters
 import scheduled.plugins as plugins
 import scheduled.utils as utils
-import scheduled.extractor as extractor
 import scheduled.parser as parser
 import scheduled.session as session
