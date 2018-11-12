@@ -7,8 +7,9 @@ Schedule D is one of the many schedules attached to U.S. Individual Income Tax R
 
 ## TODO
 
-- Convert jar to using Kotlin
 - Add functionality for multiple tables
+- Add tool to build new profiles
+- Convert jar to using Kotlin
 - Convert to using tabula-py for CLI calls
 
 ## CHANGELOG

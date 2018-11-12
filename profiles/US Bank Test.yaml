@@ -1,7 +1,0 @@
-mapping:
-  Transaction Date: Date
-  Asset Short Name: Security Name
-  Transaction Type Explanation: Transaction Type
-  Shares/Units: Shares
-  Ticker: Transaction Price # this needs to be changed so None works because we don't have anything to map
-  Transaction Amount: Amount
