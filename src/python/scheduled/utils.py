@@ -86,31 +86,6 @@ CONSTANTS = {
 }
 
 
-def read_profile(stream):
-    """Load and validate stream as a _given_profile."""
-    y = yaml.load(stream)
-    # _validatie_profile(y)
-    return y
-
-
-def _validatie_profile(y):
-    """Ensure the _given_profile contains the necessary components.
-
-    Every _given_profile MUST provide the following keys:
-        method: how to extract the source data
-        mapping: instructions to move from source format to output format
-
-    Additionally, the following optional keys can be provided:
-        options: method-specific options required for working with the source
-
-    """
-
-    required_keys = ["mapping"]
-    for key in required_keys:
-        if key not in y:
-            raise KeyError("{key} is a required field.".format(key))
-
-
 def format_output(df, mapping):
     """Format output DataFrame"""
     df = remove_unmapped_columns(df, mapping)
