@@ -55,5 +55,6 @@ class Session:
             Path to save the file to.
         
         """
-        writer = pd.ExcelWriter(dst)
+        writer = ExcelWriter(dest)
         transaction_data.to_excel(writer, "Transactions", index=False, header=False)
+        writer.save()

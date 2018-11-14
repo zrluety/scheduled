@@ -35,7 +35,7 @@ class ScheduleDCsvParser:
         filename (str): The name of the file to read
     """
 
-    def __init__(self, filename, fields, v_align='top'):
+    def __init__(self, filename, fields, v_align="top"):
         try:
             self.file = open(filename)
         except TypeError:

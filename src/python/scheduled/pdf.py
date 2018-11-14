@@ -2,12 +2,29 @@ import os
 import subprocess
 from io import StringIO
 
-from pandas import concat, read_csv
+from pandas import concat, DataFrame, read_csv
 from pandas.errors import EmptyDataError
 
 from .parser import ScheduleDCsvParser
 
-SCHEDULED_JAR = os.path.join(os.path.dirname(__file__), 'data', 'scheduled-1.1.jar')
+SCHEDULED_JAR = os.path.join(os.path.dirname(__file__), "data", "scheduled-1.1.jar")
+
+
+def get_java_call(filepath, outfilepath, names, stopwords, v_align):
+    call = [
+        "java",
+        "-jar",
+        SCHEDULED_JAR,
+        filepath,
+        "-f",
+        ",".join(names),
+        "-s",
+        ",".join(stopwords),
+        "-o",
+        outfilepath,
+    ]
+    return " ".join(call)
+
 
 def read_pdf(filepath, outfilepath, names, stopwords, v_align):
     if stopwords:

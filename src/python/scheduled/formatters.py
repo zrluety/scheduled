@@ -22,8 +22,9 @@ def format(transaction_data, mapping, plugins=None, **kwargs):
     copy = rename_cols(copy, mapping)
     copy = subset_and_order(copy)
 
-    for func in load_plugins(plugins):
-        copy = func(copy)
+    if plugins is not None:
+        for func in load_plugins(plugins):
+            copy = func(copy)
 
     return copy
 

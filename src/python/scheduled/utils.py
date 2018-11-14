@@ -33,7 +33,7 @@ def read(source, pandas_args=None, pdf_args=None, **kwargs):
 
     if pandas_args is None:
         pandas_args = {}
-    
+
     if ext == ".csv":
         tansaction_data = read_csv(source, **pandas_args)
     elif ext == ".xlsx" or ext == ".xls":
@@ -41,7 +41,7 @@ def read(source, pandas_args=None, pdf_args=None, **kwargs):
     elif ext == ".pdf":
         if pdf_args is None:
             pdf_args = {}
-        transaction_data = read_pdf(source, base + '.csv', **pdf_args)
+        transaction_data = read_pdf(source, base + ".csv", **pdf_args)
     else:
         raise ValueError("Unsupported file type")
 
@@ -51,6 +51,10 @@ def read(source, pandas_args=None, pdf_args=None, **kwargs):
 def _get_filename_from_name(name):
     """Finds the path to the correct file given name"""
     for file in os.listdir(DATA_DIR):
+        # Ignore non yaml files
+        if not file.endswith(".yaml"):
+            continue
+
         filename = os.path.join(DATA_DIR, file)
         with open(filename, "r") as y:
             profile = yaml.load(y)
@@ -123,9 +127,6 @@ def order_columns(df, mapping):
 def name_columns(df, mapping):
     """Rename the column names for a DataFrame"""
     df.rename(index=str, columns=mapping, inplace=True)
-
-
-
 
 
 def order_by_first(df):
