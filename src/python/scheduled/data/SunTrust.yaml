@@ -1,9 +1,0 @@
-name: Sun Trust
-
-mapping:
-  amount: cash_proceeds_amt
-  date: entry_dt
-  security name: tran_desc_2
-  shares: unit_qty
-  transaction price: per_unit_rate
-  transaction type: tran_type_desc

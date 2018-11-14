@@ -1,0 +1,31 @@
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+01/02/15,BlackRock Liquidity TempFund,Purchase,"9,621.330",$1.00,"-$9,621.33"
+01/05/15,BlackRock Liquidity TempFund,Purchase,"1,184.330",$1.00,"-$1,184.33"
+01/05/15,PIMCO 0-5 Year Hi Yld Corp Bond Idx,Dividend,,,$364.25
+01/06/15,BlackRock Liquidity TempFund,Purchase,364.250,$1.00,-$364.25
+01/13/15,Cash,Advisory Fee,,,"-$1,997.97"
+01/14/15,BlackRock Liquidity TempFund,Sale,"-1,997.970",$1.00,"$1,997.97"
+01/30/15,BlackRock Liquidity TempFund,Dividend Reinvestment,4.000,$1.00,$4.00
+01/30/15,Federated Ultrashort Bond Instl,Dividend,,,$182.60
+01/30/15,PIMCO Low Duration Instl,Dividend,,,$439.03
+01/30/15,PIMCO Short-Term Instl,Dividend,,,$186.80
+02/03/15,BlackRock Liquidity TempFund,Purchase,808.430,$1.00,-$808.43
+02/05/15,PIMCO 0-5 Year Hi Yld Corp Bond Idx,Dividend,,,$294.50
+02/06/15,BlackRock Liquidity TempFund,Purchase,294.500,$1.00,-$294.50
+02/06/15,iShares Barclays 1-3 Year Credit Bond,Dividend,,,$64.91
+Date,Security Name,Transaction Type,Shares,Transaction Price,Amount
+02/27/15,BlackRock Liquidity TempFund,Dividend Reinvestment,2.440,$1.00,$2.44
+02/27/15,Federated Ultrashort Bond Instl,Dividend,,,$181.20
+02/27/15,PIMCO Low Duration Instl,Dividend,,,$445.53
+02/27/15,PIMCO Short-Term Instl,Dividend,,,$155.21
+03/03/15,BlackRock Liquidity TempFund,Purchase,781.940,$1.00,-$781.94
+03/05/15,PIMCO 0-5 Year Hi Yld Corp Bond Idx,Dividend,,,$294.50
+03/06/15,BlackRock Liquidity TempFund,Purchase,294.500,$1.00,-$294.50
+03/06/15,iShares Barclays 1-3 Year Credit Bond,Dividend,,,$70.90
+03/09/15,BlackRock Liquidity TempFund,Purchase,70.900,$1.00,-$70.90
+03/26/15,Driehaus Active Income Fund,Dividend,,,"$3,294.02"
+03/27/15,BlackRock Liquidity TempFund,Purchase,"3,294.020",$1.00,"-$3,294.02"
+03/31/15,BlackRock Liquidity TempFund,Dividend Reinvestment,2.730,$1.00,$2.73
+03/31/15,Federated Ultrashort Bond Instl,Dividend,,,$183.18
+03/31/15,PIMCO Low Duration Instl,Dividend,,,$455.92
+03/31/15,PIMCO Short-Term Instl,Dividend,,,$212.71

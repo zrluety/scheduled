@@ -1,0 +1,12 @@
+name: Charles Schwab
+
+mapping:
+  amount: Amount
+  date: Date
+  security name: Description
+  shares: Quantity
+  transaction price: Price
+  transaction type: Action
+
+pandas_args:
+  skiprows: 0

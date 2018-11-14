@@ -1,0 +1,12 @@
+name: Phillips Company
+
+mapping:
+  amount: Amount
+  date: Settlement Date
+  security name: Details
+  shares: Quantity
+  transaction price: Transaction Price
+  transaction type: Description
+
+pandas_args:
+  skiprows: [0, 1]
