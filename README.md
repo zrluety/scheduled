@@ -8,7 +8,7 @@ Schedule D is one of the many schedules attached to U.S. Individual Income Tax R
 ## TODO
 
 - Add functionality for multiple tables
-- Add tool to build new profiles
+- Add tool to build new profiles (partially complete, does not allow for input of plugins)
 - Convert jar to using Kotlin
 - Convert to using tabula-py for CLI calls
 

@@ -72,7 +72,9 @@ def test_read_correct_data():
     assert first_row == expected
 
 
-@pytest.mark.skip(reason="This checks that two dataframes are equivalent and they are, the test fails for some weird reason")
+@pytest.mark.skip(
+    reason="This checks that two dataframes are equivalent and they are, the test fails for some weird reason"
+)
 def test_wells_fargo_session():
     WELLS_FARGO_STATEMENT = os.path.join(TEST_DATA_DIR, "201601 1205-EatonsNeck.pdf")
     transaction_data = api.read(WELLS_FARGO_STATEMENT, "Wells Fargo")
