@@ -1,4 +1,8 @@
+import inspect
+
 import click
+import cutie
+import pandas as pd
 import yaml
 
 
@@ -32,43 +36,66 @@ def create_profile():
 
     profile["mapping"] = mapping
 
-    # what filet ype does the source data come from?
-    file_type = click.prompt(
-        "What file type are the statements provided in? [1] CSV, [2] XLS(X), [3] PDF",
-        type=int,
-    )
+    # what file type does the source data come from?
+    print("How is the statement data provided?")
+    file_type_choices = ["CSV", "XLS(X)", "PDF"]
+    file_type = file_type_choices[cutie.select(file_type_choices)]
 
-    # for PDFs, get the additional required arguments
-    if file_type == 3:
-        pdf_args = {}
+    if file_type == "PDF":
+        profile["pdf_args"] = _build_pdf_args()
+    elif file_type == "CSV":
+        _build_pandas_args()
 
-        names = []
-        name = True
-        while name:
-            # For the first prompt give the full explanation
-            if len(names) == 0:
-                name = click.prompt(
-                    "Enter the name of each column in the Transaction Activity Table",
-                    type=str
-                )
+def _build_pdf_args():
+    pdf_args = {}
 
-                if name is None:
-                    print("Must enter at least one column name\n")
-                    continue
-                else:
-                    names.append(name)
+    # get all field names in the Transaction Activity Table
+    names = []
+    while True:
+        # For the first prompt give the full explanation
+        if len(names) == 0:
+            name = click.prompt(
+                "Enter the name of each column in the Transaction Activity Table",
+                type=str,
+            )
+
+            names.append(name)
+        else:
+            name = click.prompt(
+                "Enter the name of the next column, if finished type 'finished'",
+                type=str,
+            )
+
+            if name.lower() == "finished":
+                break
             else:
-                name = click.prompt(
-                    "Enter the name of the next column, if finished type 'finished'",
-                    type=str
-                )
+                names.append(name)
 
-                if name.lower() == "finished":
-                    break
-                else:
-                    names.append(name)
+    pdf_args["names"] = names
 
-        pdf_args["names"] = names
-        profile["pdf_args"] = pdf_args
+    # get a list of stopwords
+    stopwords = []
+    print("stop words help the application detect the bottom of table in the PDFs")
+    while True:
+        stopword = click.prompt(
+            "List all stopwords, if finished, type 'finished'", type=str
+        )
 
-        print(yaml.dump(profile))
+        if stopword.lower() == "finished":
+            break
+        else:
+            stopwords.append("stopword")
+
+    pdf_args["stopwords"] = stopwords
+
+    # get vertical alignment
+    print("How are the rows aligned in the document?")
+    alignment_choices = ["TOP", "CENTER"]
+    pdf_args["v_align"] = alignment_choices[cutie.select(alignment_choices)]
+
+    return pdf_args
+
+
+def _build_pandas_args():
+    # pandas_args = {}
+    print(inspect.getargs(pd.read_csv))
